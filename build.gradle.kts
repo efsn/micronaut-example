@@ -1,19 +1,16 @@
 plugins {
     val kotlinVersion = "1.3.71"
 
-//    `java-library`
     application
     kotlin("jvm") version kotlinVersion
     kotlin("kapt") version kotlinVersion
     kotlin("plugin.allopen") version kotlinVersion
 
-    id("com.github.johnrengelman.shadow") version "5.0.0"
-
+    id("com.github.johnrengelman.shadow") version "5.2.0"
 }
 
 subprojects {
     apply(plugin = "application")
-//    apply(plugin = "java-library")
     apply(plugin = "kotlin")
     apply(plugin = "kotlin-kapt")
     apply(plugin = "kotlin-allopen")
@@ -50,9 +47,12 @@ subprojects {
         testImplementation("org.junit.jupiter:junit-jupiter-api")
         testImplementation("org.jetbrains.spek:spek-junit-platform-engine:1.1.5")
 
-        testImplementation("io.micronaut.test:micronaut-test-junit5")
-        testImplementation("org.mockito:mockito-junit-jupiter:2.22.0")
+        testImplementation("io.kotlintest:kotlintest-runner-junit5:3.3.2")
 
+        testImplementation("io.micronaut.test:micronaut-test-junit5")
+        testImplementation("io.micronaut.test:micronaut-test-kotlintest")
+        testImplementation("org.mockito:mockito-junit-jupiter:2.22.0")
+        testImplementation("io.mockk:mockk:1.9.3")
     }
 
     tasks {
@@ -60,7 +60,6 @@ subprojects {
             kotlinOptions {
                 jvmTarget = JavaVersion.VERSION_1_8.toString()
                 freeCompilerArgs = listOf("-Xjsr305=strict")
-                // retain parameter names for java reflection
                 javaParameters = true
             }
         }
@@ -83,10 +82,13 @@ subprojects {
         shadowJar {
             mergeServiceFiles()
         }
+
+        withType<JavaExec> {
+            jvmArgs("-noverify", "-XX:TieredStopAtLevel=1", "-Dcom.sun.management.jmxremote")
+        }
     }
 
     allOpen {
         annotation("io.micronaut.aop.Around")
     }
-
 }

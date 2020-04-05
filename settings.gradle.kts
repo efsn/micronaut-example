@@ -1,7 +1,8 @@
 rootProject.name = "micronaut-example"
-rootProject.buildFileName = "build.gradle.kts"
 
-include("mn-server")
+include("micronaut-service")
+include("micronaut-function-aws")
+include("micronaut-cli")
 
 //files("x").forEach { dir ->
 //    dir.listFiles().forEach {

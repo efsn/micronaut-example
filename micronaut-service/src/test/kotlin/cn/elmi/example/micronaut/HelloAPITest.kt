@@ -15,5 +15,4 @@ class HelloAPITest {
     fun testGreetingService() {
         assertEquals("Hello Mn", helloClient.hello("Mn").blockingGet())
     }
-
 }
