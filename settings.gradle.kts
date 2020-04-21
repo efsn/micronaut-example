@@ -1,6 +1,7 @@
 rootProject.name = "micronaut-example"
 
 include("micronaut-service")
+include("micronaut-function-ali")
 include("micronaut-function-aws")
 include("micronaut-cli")
 

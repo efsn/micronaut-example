@@ -1,0 +1,10 @@
+micronaut:
+  function:
+    name: micronaut-function-ali
+  executors:
+    scheduled:
+      type: scheduled
+      core-pool-size: 30
+
+jackson:
+  bean-introspection-module: true # experimental

@@ -1,1 +1,3 @@
-micronaut.application.name: mn-server
+micronaut:
+  application.name: mn-server
+  server.port: 8080

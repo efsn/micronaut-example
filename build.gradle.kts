@@ -1,5 +1,5 @@
 plugins {
-    val kotlinVersion = "1.3.71"
+    val kotlinVersion = "1.3.72"
 
     application
     kotlin("jvm") version kotlinVersion
@@ -9,7 +9,7 @@ plugins {
     id("com.github.johnrengelman.shadow") version "5.2.0"
 }
 
-subprojects {
+allprojects {
     apply(plugin = "application")
     apply(plugin = "kotlin")
     apply(plugin = "kotlin-kapt")
@@ -30,11 +30,14 @@ subprojects {
 
         implementation("io.micronaut:micronaut-runtime")
         implementation("io.micronaut:micronaut-http-server-netty")
-        implementation("io.micronaut:micronaut-http-client")
+        implementation("io.micronaut.reactor:micronaut-reactor")
+        implementation("io.micronaut:micronaut-validation")
+        implementation("io.micronaut.reactor:micronaut-reactor-http-client:1.0.0.RC1")
 
         kapt(platform("io.micronaut:micronaut-bom:2.0.0.M2"))
         kapt("io.micronaut:micronaut-inject-java")
         kapt("io.micronaut:micronaut-validation")
+//        kapt("io.micronaut.configuration:micronaut-hibernate-validator")
         kapt("io.micronaut.configuration:micronaut-openapi")
 
         runtimeOnly("com.fasterxml.jackson.module:jackson-module-kotlin")
