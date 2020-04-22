@@ -22,14 +22,17 @@ allprojects {
         jcenter()
     }
 
+    configurations.create("developmentOnly")
+
     dependencies {
         implementation(platform("io.micronaut:micronaut-bom:2.0.0.M2"))
 
         implementation(kotlin("stdlib-jdk8"))
         implementation(kotlin("reflect"))
 
+//        developmentOnly("io.micronaut:micronaut-http-server-netty")
+
         implementation("io.micronaut:micronaut-runtime")
-        implementation("io.micronaut:micronaut-http-server-netty")
         implementation("io.micronaut.reactor:micronaut-reactor")
         implementation("io.micronaut:micronaut-validation")
         implementation("io.micronaut.reactor:micronaut-reactor-http-client:1.0.0.RC1")
@@ -80,6 +83,7 @@ allprojects {
             testLogging {
                 events("passed", "skipped", "failed")
             }
+            classpath += configurations.getByName("developmentOnly")
         }
 
         shadowJar {
@@ -87,6 +91,7 @@ allprojects {
         }
 
         withType<JavaExec> {
+            classpath += configurations.getByName("developmentOnly")
             jvmArgs("-noverify", "-XX:TieredStopAtLevel=1", "-Dcom.sun.management.jmxremote")
         }
     }

@@ -1,0 +1,5 @@
+Resources:
+  FirstFunction:
+    Type: AWS::Serverless::Function
+    Properties:
+      Handler: cn.elmi.example.micronaut.function.handler.RoundHandler::handleRequest
