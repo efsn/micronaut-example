@@ -1,0 +1,10 @@
+micronaut:
+  application:
+    name: mn-service-dev
+    instance:
+      id: ${random.shortuuid}
+  server.port: 8080
+
+logger:
+  levels:
+    cn.elmi: ERROR

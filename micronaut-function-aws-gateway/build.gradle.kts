@@ -12,7 +12,9 @@ dependencies {
     runtimeOnly("com.amazonaws:aws-lambda-java-log4j2:1.1.0")
 }
 
-//mainClassName = "first.app.Application"
+application {
+    mainClassName = "cn.elmi.example.micronaut.function.aws.Application"
+}
 
 tasks {
     register<Zip>("buildZip") {

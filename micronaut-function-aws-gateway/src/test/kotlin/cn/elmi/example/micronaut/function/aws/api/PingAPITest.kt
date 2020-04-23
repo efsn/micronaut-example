@@ -1,10 +1,10 @@
 package cn.elmi.example.micronaut.function.aws.api
 
+import io.kotlintest.shouldBe
 import io.micronaut.http.HttpStatus
-import io.micronaut.http.client.RxHttpClient
+import io.micronaut.http.client.HttpClient
 import io.micronaut.runtime.server.EmbeddedServer
 import io.micronaut.test.annotation.MicronautTest
-import org.junit.jupiter.api.Assertions.assertEquals
 import org.junit.jupiter.api.Test
 
 @MicronautTest
@@ -14,8 +14,7 @@ internal class PingAPITest(
 
     @Test
     fun `should ping with pong`() =
-        embeddedServer.applicationContext.createBean(RxHttpClient::class.java, embeddedServer.url).use {
-            assertEquals(HttpStatus.OK, it.toBlocking().exchange<String>("/ping").status)
+        embeddedServer.applicationContext.createBean(HttpClient::class.java, embeddedServer.url).use {
+            it.toBlocking().exchange<String>("/ping").status shouldBe HttpStatus.OK
         }
-
 }

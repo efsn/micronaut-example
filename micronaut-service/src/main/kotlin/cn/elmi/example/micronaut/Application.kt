@@ -7,7 +7,10 @@ object Application {
     fun main(args: Array<String>) {
         Micronaut.build()
             .packages("cn.elmi")
-            .mainClass(Application.javaClass)
+            .mainClass(javaClass)
+            .environmentPropertySource(false)
+            .environmentVariableIncludes("TEST_ENV_ONLY")
+            .environmentVariableExcludes("EXCLUDE_ENV")
             .start()
     }
 }
