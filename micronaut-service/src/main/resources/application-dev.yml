@@ -4,7 +4,27 @@ micronaut:
     instance:
       id: ${random.shortuuid}
   server.port: 8080
+  http:
+    client:
+      read-timeout: 15s
+      max-content-length: 10mb
 
 logger:
   levels:
     cn.elmi: ERROR
+
+external:
+  engine:
+    cylinders: 6
+    manufacturer: x
+    crank-shaft:
+      rod-length: 5.6
+
+datasources:
+  default:
+    name: ffb
+
+jpa:
+  default:
+    properties:
+      r2dbc: x
