@@ -15,7 +15,6 @@ import java.time.Duration
 import java.time.LocalDate
 import java.util.*
 import javax.inject.Singleton
-import javax.sql.DataSource
 
 @Singleton
 class Map2LocalDateConverter : TypeConverter<Map<*, *>, LocalDate> {
