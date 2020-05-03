@@ -1,5 +1,6 @@
 ### Gradle ###
 .gradle/
+.kotlintest/
 build
 !gradle/wrapper/gradle-wrapper.jar
 
