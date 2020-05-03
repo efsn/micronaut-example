@@ -4,3 +4,10 @@ micronaut:
   caches:
     my-cache:
       maximum-size: 5
+  executors:
+    scheduled:
+      n-threads: 8
+      type: scheduled
+      parallelism: 4
+      core-pool-size: 30
+      number-of-threads: 8
