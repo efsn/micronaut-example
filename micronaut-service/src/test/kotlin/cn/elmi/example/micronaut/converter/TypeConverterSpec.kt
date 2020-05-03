@@ -50,7 +50,7 @@ class EachPropertySpec {
     }
 
     @Test
-    fun `test each property`(): Unit {
+    fun `test each property`() {
         val beansOfType = ctx.getBeansOfType(DataSourceConfiguration::class.java)
         beansOfType.size shouldBe 2
         val first = ctx.getBean(DataSourceConfiguration::class.java, Qualifiers.byName("one"))

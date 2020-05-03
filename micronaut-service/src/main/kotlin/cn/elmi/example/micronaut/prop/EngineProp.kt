@@ -35,9 +35,9 @@ constructor(
 
     @NotNull
     val crankShaft: CrankShaft
-){
+) {
     data class CrankShaft @ConfigurationInject
-    constructor(private val rodLength: Double?){
+    constructor(private val rodLength: Double?) {
         fun getRodLength() = Optional.ofNullable(rodLength)
     }
 }

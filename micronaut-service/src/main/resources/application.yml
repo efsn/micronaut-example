@@ -1,3 +1,6 @@
 micronaut:
   application.name: mn-server
   server.port: 8080
+  caches:
+    my-cache:
+      maximum-size: 5

@@ -1,6 +1,5 @@
 package cn.elmi.example.micronaut.converter
 
-import io.micronaut.context.ApplicationContext
 import io.micronaut.context.annotation.ConfigurationProperties
 import java.time.LocalDate
 
