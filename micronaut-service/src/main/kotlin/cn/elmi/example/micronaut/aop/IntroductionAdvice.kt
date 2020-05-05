@@ -5,7 +5,6 @@ import io.micronaut.aop.MethodInterceptor
 import io.micronaut.aop.MethodInvocationContext
 import io.micronaut.context.annotation.Bean
 import io.micronaut.context.annotation.Type
-import io.micronaut.runtime.event.annotation.EventListener
 import java.time.LocalDateTime
 import javax.inject.Singleton
 

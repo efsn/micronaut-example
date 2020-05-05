@@ -9,7 +9,7 @@ import org.junit.jupiter.api.Test
 class StubExampleTest {
 
     @Test
-    fun `should get stub value`(): Unit {
+    fun `should get stub value`() {
         val ctx = ApplicationContext.run()
         val stubExample = ctx.getBean(StubExample::class.java)
         stubExample.number shouldBe 10

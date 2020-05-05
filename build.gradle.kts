@@ -25,7 +25,7 @@ allprojects {
     configurations.create("developmentOnly")
 
     dependencies {
-        implementation(platform("io.micronaut:micronaut-bom:2.0.0.M2"))
+        implementation(platform("io.micronaut:micronaut-bom:2.0.0.M3"))
 
         implementation(kotlin("stdlib-jdk8"))
         implementation(kotlin("reflect"))
@@ -37,7 +37,7 @@ allprojects {
         implementation("io.micronaut:micronaut-validation")
         implementation("io.micronaut.reactor:micronaut-reactor-http-client:1.0.0.RC1")
 
-        kapt(platform("io.micronaut:micronaut-bom:2.0.0.M2"))
+        kapt(platform("io.micronaut:micronaut-bom:2.0.0.M3"))
         kapt("io.micronaut:micronaut-inject-java")
         kapt("io.micronaut:micronaut-validation")
 //        kapt("io.micronaut.configuration:micronaut-hibernate-validator")
@@ -46,7 +46,7 @@ allprojects {
         runtimeOnly("com.fasterxml.jackson.module:jackson-module-kotlin")
         runtimeOnly("ch.qos.logback:logback-classic:1.2.3")
 
-        kaptTest(platform("io.micronaut:micronaut-bom:2.0.0.M2"))
+        kaptTest(platform("io.micronaut:micronaut-bom:2.0.0.M3"))
         kaptTest("io.micronaut:micronaut-inject-java")
 
         testImplementation("org.junit.jupiter:junit-jupiter-engine")

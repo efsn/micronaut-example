@@ -4,6 +4,7 @@ import io.micronaut.aop.Around
 import io.micronaut.aop.MethodInterceptor
 import io.micronaut.aop.MethodInvocationContext
 import io.micronaut.context.annotation.Type
+import io.micronaut.validation.Validated
 import java.util.*
 import javax.inject.Singleton
 
@@ -34,13 +35,12 @@ class NotNullInterceptor : MethodInterceptor<Any, Any> {
 @Type(NotNullInterceptor::class)
 annotation class NotNull
 
+@Validated
 @Singleton
-open class NotNullExample {
+class NotNullExample {
 
     @NotNull
-    open fun doWork(taskName: String?) {
+    fun doWork(taskName: String?) {
         println("Doing job: $taskName")
     }
 }
-
-

@@ -1,5 +1,6 @@
 dependencies {
-//    implementation("io.micronaut.")
+    implementation("io.micronaut:micronaut-http-server-netty")
+//    developmentOnly("io.micronaut:micronaut-http-server-netty")
 }
 
 application {
