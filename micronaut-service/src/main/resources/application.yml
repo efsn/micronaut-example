@@ -5,9 +5,17 @@ micronaut:
     my-cache:
       maximum-size: 5
   executors:
+    io:
+      type: fixed
+      nThreads: 75
     scheduled:
       n-threads: 8
       type: scheduled
       parallelism: 4
       core-pool-size: 30
       number-of-threads: 8
+  codec:
+    json:
+      additionalTypes:
+        - text/javascript
+        - json/javascript
